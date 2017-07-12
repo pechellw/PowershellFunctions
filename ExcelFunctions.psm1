@@ -13,11 +13,11 @@
     .PARAMETER Path
     Path to file name.
 
-    .PARAMETER Password
-    For password protected files.
+    .PARAMETER PasswordProtected
+    Use this switch to be prompted for password protected files.
 
     .PARAMETER SheetName
-    The specific name of the sheet to be imported
+    The specific name of the sheet to be imported.
 
     .PARAMETER Type
     Data format to import. Either HashTable (Key,Value pairs) or Array.
@@ -29,6 +29,9 @@
     .PARAMETER SkipColumns
     Columns to be skipped. Can be entered as a comma separated list e.g. 1,2,(4..6). Ranges entered in brackets.
 
+    .PARAMETER TopRow
+    Specify the row number containing the top (header) row.
+
     .EXAMPLE
         #Import into an array using the first sheet of data.
         Import-Excel -Type Array -Path [Path to File Name]
@@ -38,7 +41,7 @@
         Import-Excel -Type Array -Path [Path to File Name] -SheetName [SheetName]
 
     .EXAMPLE
-        #Import into a hashtable
+        #Import into a hashtable.
         Import-Excel -Type HashTable -Path [Path to File Name] -SheetName [SheetName] -KeyColumn [Key Column number] -ValueColumn [Value Column number]
 
     #>
