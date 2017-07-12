@@ -22,6 +22,12 @@
     .PARAMETER Type
     Data format to import. Either HashTable (Key,Value pairs) or Array.
 
+    .PARAMETER KeyColumn
+    Specify the column containing Keys (HashTable).
+
+    .PARAMETER ValueColumn
+    Specify the column containing Values (HashTable).
+
     .PARAMETER SkipRows
     Rows to be skipped. Can be entered as a comma separated list e.g. 1,2,(4..6). Ranges entered in brackets. Useful
     if worksheets have title rows that spoil the import.
