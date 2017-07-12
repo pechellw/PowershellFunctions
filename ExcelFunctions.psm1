@@ -56,7 +56,8 @@
         [int]$KeyColumn = 1,
         [int]$ValueColumn = 2,
         [int[]]$SkipRows,
-        [int[]]$SkipColumns
+        [int[]]$SkipColumns,
+        [int]$TopRow
         )
 
 
@@ -115,10 +116,13 @@
             'HashTable'
             {
                 [HashTable]$XlData = @{}
-                $topRow = 1
-                while($topRow -in $SkipRows)
+                if(!($topRow))
                 {
-                    $topRow++
+                    $topRow = 1
+                    while($topRow -in $SkipRows)
+                    {
+                        $topRow++
+                    }
                 }
                 
                 Write-Host "TopRow is $topRow"
@@ -133,10 +137,13 @@
             'Array'
             {
                 [Array]$XlData = @()
-                $topRow = 1
-                while($topRow -in $SkipRows)
+                if(!($topRow))
                 {
-                    $topRow++
+                    $topRow = 1
+                    while($topRow -in $SkipRows)
+                    {
+                        $topRow++
+                    }
                 }
                 Write-Host "TopRow is $topRow"
                 for($row = $topRow+1;$row -le $rows;$row++)
