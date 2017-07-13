@@ -113,9 +113,9 @@
         }
         Write-Host "Sheet: $($sheet.Name)"
         $rows = $sheet.UsedRange.Rows.Count
-        Write-Host "Total Rows: $rows"
+        Write-Host "Total Rows to import: $($rows-$SkipRows.Count)"
         $columns = $sheet.UsedRange.Columns.Count
-        Write-Host "Total Columns: $columns"
+        Write-Host "Total Columns to import: $($columns-$SkipColumns.Count)"
     }
 
     process
